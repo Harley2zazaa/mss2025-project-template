@@ -10,6 +10,6 @@ git add .
 
 git diff-index --quiet HEAD || git commit -m "Automated commit from cron 234 time:$TIME"
 
-git push "https://${GITHUB_USERNAME}:${GITHUB_PAT}@github.com/Harley2zazaa/mss2025-project-template.git" my_harley
+git push "https://${GITHUB_USERNAME}:${GITHUB_PAT}@github.com/Harley2zazaa/mss2025-project-template.git" new_harley
 
 
