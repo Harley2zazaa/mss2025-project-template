@@ -103,7 +103,7 @@ echo "
     .tree-pre {
       margin: 0;
       white-space: pre;              /* preserve whitespace and lines */
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, \"Roboto Mono\", monospace;
       font-size: 0.9rem;
       line-height: 1.25;
       color: #111;
@@ -146,7 +146,7 @@ echo "
 
     <div class=\"card\">
       <div class=\"label\">Last Updated</div>
-      <div class=\"value\">$TIM</div>
+      <div class=\"value\">$TIME</div>
     </div>
 
     <div class=\"card\">
