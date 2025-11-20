@@ -3,7 +3,7 @@
 This repository is a demo project for junior students. The goal is to build a system that automatically monitors and displays the resource usage of an **Ubuntu Server** on a public **GitHub Pages** website.
 
 ## 📝 Project Overview
-This is a group project (4-5 members) that combines several key infrastructure concepts:
+This is a group project (7-8 members) that combines several key infrastructure concepts:
 
 * **Virtualization:** You will use two VMs: an **Ubuntu Desktop** (as your client machine) and an **Ubuntu Server** (as your target machine).
 * **Remote Connectivity:** Students will use the **Desktop VM** to **SSH** into the **Server VM**, where all work will be done.
@@ -58,7 +58,7 @@ ___
 Ce **repository** est un projet de démonstration pour les étudiants juniors. L'objectif est de construire un système qui surveille et affiche automatiquement l'utilisation des ressources d'un **Ubuntu Server** sur un site web public via **GitHub Pages**.
 
 ## 📝 Aperçu du Projet
-Il s'agit d'un projet de groupe (4-5 membres) combinant plusieurs concepts clés d'infrastructure :
+Il s'agit d'un projet de groupe (7-8 membres) combinant plusieurs concepts clés d'infrastructure :
 
 * **Virtualization :** Vous utiliserez deux **VMs** : un **Ubuntu Desktop** (machine client) et un **Ubuntu Server** (machine cible).
 * **Remote Connectivity :** Les étudiants utiliseront la **VM Desktop** pour se connecter via **SSH** à la **VM Server**, où tout le travail sera effectué.
