@@ -185,12 +185,6 @@ cat > "$OUT_FILE" <<HTML
           <div class="label">Home Directory Tree</div>
         </div>
 
-        <!-- checkbox + label used as an interactive button (no JS) -->
-        <div style="display:flex; align-items:center; gap:8px;">
-          <input id="toggle-tree" type="checkbox" />
-        </div>
-      </div>
-
       <div class="tree-panel">
         <div class="tree-wrapper">
           <div class="tree-card" role="region" aria-label="home directory tree">
