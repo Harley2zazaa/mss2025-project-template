@@ -68,16 +68,6 @@ echo "
     <div class="label">Last Updated</div>
     <div class="value">$TIME</div>
   </div>
-  <div class="card">
-    <div class="label">Firewall Rules</div>
-    <div class="value" style="font-size: 0.9em; white-space: pre-wrap;">$FIREWALL</div>
-  </div>
-
-  <div class="card">
-    <div class="label">Open Ports</div>
-    <div class="value" style="font-size: 0.9em; white-space: pre-wrap;">$PORTS</div>
-  </div>
-
 </body>
 </html>
 " > /home/japansg/git/mss2025-project-template/234/japan.html
