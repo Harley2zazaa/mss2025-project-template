@@ -37,7 +37,7 @@ server_ip=$(hostname -I | awk '{print $1}')
 last_update=$(date +'%H:%M:%S %d/%m/%Y')
 
 # --- 7. สร้างไฟล์ index.html (ไม่มีช่องว่างนำหน้าหรือตามหลัง EOF) ---
-cat /home/atikan/mss2025-project-template/student193/index.html << EOF
+cat > /home/atikan/mss2025-project-template/student193/index.html << EOF
 <!DOCTYPE html>
 <html lang="th">
 <head>
