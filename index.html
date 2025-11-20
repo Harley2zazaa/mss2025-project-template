@@ -10,177 +10,162 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- MARK: Import AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- MARK: Title -->
-    <title>Document</title>
+    <title>Ubuntu Server Monitoring</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.freepik.com/512/4009/4009072.png">
 </head>
 <body style="font-family: 'Prompt';">
     <!-- MARK: Welcome Page -->
-    <div id="section0" class="container-fluid p-4 vh-100 d-flex justify-content-center align-items-center bg-dark">
+    <div class="container-fluid p-4 mb-3 vh-100 d-flex justify-content-center align-items-center bg-dark">
         <div class="position-relative text-center text-light">
             <h1 id="header" class="display-4 fw-medium mb-3">Hello, world! 👋</h1>
-            <p class="fs-4 fw-light mb-0">🔥 Welcome to Our Ubuntu Server Website</p>
+            <p class="fs-4 fw-light mb-0">🔥 Welcome to Our Ubuntu Server Monitoring</p>
         </div>
     </div>
     <!-- MARK: Select Page -->
-    <div id="section0" class="container-fluid p-4 vh-100 d-flex justify-content-center align-items-center bg-light">
-            <div id="demo" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="7"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="d-flex justify-content-center">
-                            <div class="card text-center p-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Toh</h5>
-                                    <p class="card-text">67070115</p>
-                                    <hr>
-                                    <p class="card-text mb-0">CPU USAGE</p>
-                                    <p class="card-text mb-0">MEMORY USAGE</p>
-                                    <p class="card-text mb-0">STORAGE USAGE</p>
-                                    <p class="card-text mb-0">LAST TIME UPDATED</p>
-                                    <p class="card-text">OTHER</p>
-                                    <a href="./115/115.html" target="_blank" class="btn btn-danger m-2">View Stat</a>
-                                </div>
-                            </div>
-                        </div>
+    <div class="container px-4 py-5 mb-3">
+        <div data-aos="fade-up">
+            <h1>🚀 Choose your Distro :)</h1>
+        </div>
+        <hr>
+        <div data-aos="fade-up">
+            <h3>Website</h3>
+            <p>These are all of our website. Click to see details.</p>
+        </div>
+        <div id="accordion">
+            <div data-aos="fade-up">
+                <div class="card mb-3 rounded-3 shadow" style="border-left: 5px solid #0d6efd;">
+                    <div class="card-body" data-bs-toggle="collapse" href="#collapse1">
+                        <h6 class="text-primary">67070115</h6>
+                        <h4 class="mb-0">Toh Monitoring Website</h4>
                     </div>
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="card text-center p-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Office</h5>
-                                    <p class="card-text">67070164</p>
-                                    <hr>
-                                    <p class="card-text mb-0">CPU USAGE</p>
-                                    <p class="card-text mb-0">MEMORY USAGE</p>
-                                    <p class="card-text mb-0">STORAGE USAGE</p>
-                                    <p class="card-text mb-0">LAST TIME UPDATED</p>
-                                    <p class="card-text">OTHER</p>
-                                    <a href="./164/164.html" target="_blank" class="btn btn-danger m-2">View Stat</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="card text-center p-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Arse</h5>
-                                    <p class="card-text">67070167</p>
-                                    <hr>
-                                    <p class="card-text mb-0">CPU USAGE</p>
-                                    <p class="card-text mb-0">MEMORY USAGE</p>
-                                    <p class="card-text mb-0">STORAGE USAGE</p>
-                                    <p class="card-text mb-0">LAST TIME UPDATED</p>
-                                    <p class="card-text">OTHER</p>
-                                    <a href="./167/167.html" target="_blank" class="btn btn-danger m-2">View Stat</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="card text-center p-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Sea</h5>
-                                    <p class="card-text">67070183</p>
-                                    <hr>
-                                    <p class="card-text mb-0">CPU USAGE</p>
-                                    <p class="card-text mb-0">MEMORY USAGE</p>
-                                    <p class="card-text mb-0">STORAGE USAGE</p>
-                                    <p class="card-text mb-0">LAST TIME UPDATED</p>
-                                    <p class="card-text">OTHER</p>
-                                    <a href="./183/183.html" target="_blank" class="btn btn-danger m-2">View Stat</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="card text-center p-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Gun</h5>
-                                    <p class="card-text">67070193</p>
-                                    <hr>
-                                    <p class="card-text mb-0">CPU USAGE</p>
-                                    <p class="card-text mb-0">MEMORY USAGE</p>
-                                    <p class="card-text mb-0">STORAGE USAGE</p>
-                                    <p class="card-text mb-0">LAST TIME UPDATED</p>
-                                    <p class="card-text">OTHER</p>
-                                    <a href="./193/193.html" target="_blank" class="btn btn-danger m-2">View Stat</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="card text-center p-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Japan</h5>
-                                    <p class="card-text">67070234</p>
-                                    <hr>
-                                    <p class="card-text mb-0">CPU USAGE</p>
-                                    <p class="card-text mb-0">MEMORY USAGE</p>
-                                    <p class="card-text mb-0">STORAGE USAGE</p>
-                                    <p class="card-text mb-0">LAST TIME UPDATED</p>
-                                    <p class="card-text">OTHER</p>
-                                    <a href="./234/234.html" target="_blank" class="btn btn-danger m-2">View Stat</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="card text-center p-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Kong</h5>
-                                    <p class="card-text">67070237</p>
-                                    <hr>
-                                    <p class="card-text mb-0">CPU USAGE</p>
-                                    <p class="card-text mb-0">MEMORY USAGE</p>
-                                    <p class="card-text mb-0">STORAGE USAGE</p>
-                                    <p class="card-text mb-0">LAST TIME UPDATED</p>
-                                    <p class="card-text">OTHER</p>
-                                    <a href="./237/237.html" target="_blank" class="btn btn-danger m-2">View Stat</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="card text-center p-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Haley</h5>
-                                    <p class="card-text">67070259</p>
-                                    <hr>
-                                    <p class="card-text mb-0">CPU USAGE</p>
-                                    <p class="card-text mb-0">MEMORY USAGE</p>
-                                    <p class="card-text mb-0">STORAGE USAGE</p>
-                                    <p class="card-text mb-0">LAST TIME UPDATED</p>
-                                    <p class="card-text">OTHER</p>
-                                    <a href="./259/259.html" target="_blank" class="btn btn-danger m-2">View Stat</a>
-                                </div>
-                            </div>
+                    <div id="collapse1" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body text-center">
+                            <p>Website that shows CPU Usage, Memory Usage, Storage Usage, Last updated, System Uptime, OS Version and Load average.</p>
+                            <hr>
+                            <a href="/115/index.html" target="_blank" class="btn btn-primary m-2">View Website</a>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
+            </div>
+            <div data-aos="fade-up">
+                <div class="card mb-3 rounded-3 shadow" style="border-left: 5px solid #0d6efd;">
+                    <div class="card-body" data-bs-toggle="collapse" href="#collapse2">
+                        <h6 class="text-primary">67070164</h6>
+                        <h4 class="mb-0">Office Monitoring Website</h4>
+                    </div>
+                    <div id="collapse2" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body text-center">
+                            <p>Website that shows CPU Usage, Memory Usage, Storage Usage, Last updated and Operating System.</p>
+                            <hr>
+                            <a href="/164/office.html" target="_blank" class="btn btn-primary m-2">View Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-up">
+                <div class="card mb-3 rounded-3 shadow" style="border-left: 5px solid #198754;">
+                    <div class="card-body" data-bs-toggle="collapse" href="#collapse3">
+                        <h6 class="text-success">67070167</h6>
+                        <h4 class="mb-0">Arsé Monitoring Website</h4>
+                    </div>
+                    <div id="collapse3" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body text-center">
+                            <p>Website that shows CPU Usage, Memory Usage, Storage Usage, Last updated.</p>
+                            <hr>
+                            <a href="/167/" target="_blank" class="btn btn-success m-2">View Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-up">
+                <div class="card mb-3 rounded-3 shadow" style="border-left: 5px solid #198754;">
+                    <div class="card-body" data-bs-toggle="collapse" href="#collapse4">
+                        <h6 class="text-success">67070183</h6>
+                        <h4 class="mb-0">Sea Monitoring Website</h4>
+                    </div>
+                    <div id="collapse4" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body text-center">
+                            <p>Website that shows CPU Usage, Memory Usage, Storage Usage, Last updated, Processes, Uptime and Load Average.</p>
+                            <hr>
+                            <a href="/183/diddy.html" target="_blank" class="btn btn-success m-2">View Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-up">
+                <div class="card mb-3 rounded-3 shadow" style="border-left: 5px solid #dc3545;">
+                    <div class="card-body" data-bs-toggle="collapse" href="#collapse5">
+                        <h6 class="text-danger">67070193</h6>
+                        <h4 class="mb-0">Gun Monitoring Website</h4>
+                    </div>
+                    <div id="collapse5" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body text-center">
+                            <p>Website that shows CPU Usage, Memory Usage, Storage Usage, Last updated.</p>
+                            <hr>
+                            <a href="/193/" target="_blank" class="btn btn-danger m-2">View Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-up">
+                <div class="card mb-3 rounded-3 shadow" style="border-left: 5px solid #dc3545;">
+                    <div class="card-body" data-bs-toggle="collapse" href="#collapse6">
+                        <h6 class="text-danger">67070234</h6>
+                        <h4 class="mb-0">Japan Monitoring Website</h4>
+                    </div>
+                    <div id="collapse6" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body text-center">
+                            <p>Website that shows CPU Usage, Memory Usage, Storage Usage, Last updated.</p>
+                            <hr>
+                            <a href="/234/japan.html" target="_blank" class="btn btn-danger m-2">View Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-up">
+                <div class="card mb-3 rounded-3 shadow" style="border-left: 5px solid #ffc107;">
+                    <div class="card-body" data-bs-toggle="collapse" href="#collapse7">
+                        <h6 class="text-warning">67070237</h6>
+                        <h4 class="mb-0">Kong Monitoring Website</h4>
+                    </div>
+                    <div id="collapse7" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body text-center">
+                            <p>Website that shows CPU Usage, Memory Usage, Storage Usage, Last updated.</p>
+                            <hr>
+                            <a href="/237/237.html" target="_blank" class="btn btn-warning text-light m-2">View Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-up">
+                <div class="card mb-3 rounded-3 shadow" style="border-left: 5px solid #ffc107;">
+                    <div class="card-body" data-bs-toggle="collapse" href="#collapse8">
+                        <h6 class="text-warning">67070259</h6>
+                        <h4 class="mb-0">Harley Monitoring Website</h4>
+                    </div>
+                    <div id="collapse8" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body text-center">
+                            <p>Website that shows CPU Usage, Memory Usage, Storage Usage, Last updated, Current Processes and System Status.</p>
+                            <hr>
+                            <a href="/259/index.html" target="_blank" class="btn btn-warning text-light m-2">View Website</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <!-- MARK: Footer -->
+    <div class="container-fluid p-4 mt-3 bg-dark border-top">
+        <div class="container text-center text-light">
+            <p class="fw-light mb-0">Made with 😵‍💫 by<a class="text-light text-decoration-none" href="https://github.com/Harley2zazaa/mss2025-project-template" target="_blank"> Where is Pipoltutor?</a> Powered by Deadline 💀</p>
+        </div>
+    </div>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
- 
