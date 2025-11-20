@@ -6,7 +6,7 @@ MEMORY_TOTAL=$(free -m | awk '/^Mem:/ {print $2}')
 STORAGE_USAGE=$(df / | awk 'NR==2 {print $5}' | sed 's/%//')
 OS=$(grep '^PRETTY_NAME=' /etc/os-release | cut -d '=' -f 2 | tr -d '"')
 SYSTEM_UPTIME=$(uptime -p)
-LAST_UPDATED=$(uptime -s)
+LAST_UPDATED=$(date)
 cat << EOF > /home/office/mss2025-project-template/164/system_status.json
 {
     "cpu_usage": "$CPU_USAGE",
