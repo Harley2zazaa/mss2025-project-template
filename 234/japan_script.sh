@@ -26,13 +26,12 @@ echo "
   <meta charset="UTF-8" />
   <title>Server Stats Dashboard</title>
   <style>
-    body {
+    body .container{
       font-family: sans-serif;
       background: #f0f0f0;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      flex-direction: column;
       padding: 20px;
     }
     .card {
@@ -56,7 +55,7 @@ echo "
   </style>
 </head>
 <body>
-  <div>
+  <div class="container">
   <div class="card">
     <div class="label">CPU Usage</div>
     <div class="value">$CPU</div>
