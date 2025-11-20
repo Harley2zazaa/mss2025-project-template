@@ -35,7 +35,7 @@ cat > index.html << EOF
             background: #0a0a0a;
             color: #fff;
             padding: 40px 20px;
-            min-height: 100vh;
+            height: 100vh;
         }
         .container {
             max-width: 800px;
