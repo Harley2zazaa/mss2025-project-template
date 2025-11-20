@@ -124,7 +124,6 @@ cat > "$OUT_FILE" <<HTML
       font-size:0.92rem;
       line-height:1.28;
       color:var(--muted);
-      transform:translateX(-22px);
       transition: transform 220ms ease, color 220ms ease;
       display:block;
     }
