@@ -155,7 +155,7 @@ echo "
     </div>
 
     <!-- Home directory tree card -->
-    <div class="card wide" style="margin-left: 20px;">
+    <div class="card wide" style="margin-left: 20px\;">
       <div class="label">Home Directory Tree</div>
 
       <!-- wrapper hides anything shifted out and provides the visible card edge -->
