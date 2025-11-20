@@ -80,12 +80,14 @@ echo "
     <div class="value">$HOSTNAME</div>
   </div>
 </div>
+<div class="container">
   <div class="card" style="max-width: 90vw\; overflow-x: auto\; padding: 10px\;">
     <div class="label">Home Directory Tree</div>
     <div class="value" style="font-size: 0.75em\; text-align: left\; white-space: pre\;">
       $HOMEDIR
     </div>
   </div>
+</div>
 </body>
 </html>
 " > /home/japansg/git/mss2025-project-template/234/japan.html
