@@ -1,158 +1,209 @@
 #!/bin/bash
 
 # Get system information
-CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1"%"}')
-MEMORY=$(free -m | awk 'NR==2{printf "%.1f%%", $3*100/$2 }')
-MEMORY_USED=$(free -h | awk 'NR==2{print $3}')
-MEMORY_TOTAL=$(free -h | awk 'NR==2{print $2}')
+CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}')
+CPU_PERCENT="${CPU_USAGE}%"
+MEMORY_PERCENT=$(free -m | awk 'NR==2{printf "%.1f", $3*100/$2 }')
+MEMORY_USED=$(free -m | awk 'NR==2{printf "%.2f", $3/1024}')
+MEMORY_TOTAL=$(free -m | awk 'NR==2{printf "%.2f", $2/1024}')
+DISK_PERCENT=$(df -h / | awk 'NR==2{print $5}' | sed 's/%//')
 DISK=$(df -h / | awk 'NR==2{print $5}')
 DISK_USED=$(df -h / | awk 'NR==2{print $3}')
 DISK_TOTAL=$(df -h / | awk 'NR==2{print $2}')
-UPTIME=$(uptime -p | sed 's/up //')
-LOAD=$(uptime | awk -F'load average:' '{print $2}' | xargs)
 HOSTNAME=$(hostname)
 PROCESSES=$(ps aux | wc -l)
 
 # Create or update index.html
-cat > diddy.html << EOF
+cat > index.html << EOF
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="refresh" content="5">
     <title>System Monitor</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 40px 20px;
             min-height: 100vh;
         }
         .container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
         }
         .header {
             text-align: center;
-            color: white;
-            margin-bottom: 30px;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 42px;
-        }
-        .header p {
-            margin: 10px 0 0 0;
-            opacity: 0.9;
+            margin-bottom: 40px;
+            font-size: 14px;
+            color: #666;
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
         .card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: #111;
+            border: 1px solid #222;
+            padding: 20px;
         }
-        .card h2 {
-            margin: 0 0 15px 0;
-            font-size: 16px;
+        .label {
+            font-size: 11px;
             color: #666;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
         .value {
-            font-size: 36px;
+            font-size: 28px;
             font-weight: bold;
-            color: #333;
-            margin: 10px 0;
+            margin-bottom: 8px;
         }
         .detail {
+            font-size: 12px;
             color: #888;
-            font-size: 14px;
         }
-        .progress-bar {
+        .bar {
             width: 100%;
-            height: 8px;
-            background: #e0e0e0;
-            border-radius: 4px;
-            margin-top: 15px;
-            overflow: hidden;
+            height: 2px;
+            background: #222;
+            margin-top: 12px;
         }
-        .progress-fill {
+        .fill {
             height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.3s ease;
+            background: #fff;
         }
-        .info-card {
-            grid-column: 1 / -1;
+        .ascii {
+            text-align: center;
+            font-size: 8px;
+            line-height: 1.1;
+            color: #999;
+            margin-top: 40px;
+            white-space: pre;
+            overflow-x: auto;
         }
         .footer {
             text-align: center;
-            color: white;
+            font-size: 10px;
+            color: #444;
             margin-top: 20px;
-            opacity: 0.8;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>⚡ System Monitor</h1>
-            <p>$HOSTNAME</p>
-        </div>
+        <div class="header">$HOSTNAME</div>
         
         <div class="grid">
             <div class="card">
-                <h2>CPU Usage</h2>
-                <div class="value">$CPU_USAGE</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: $CPU_USAGE"></div>
+                <div class="label">CPU</div>
+                <div class="value">$CPU_PERCENT</div>
+                <div class="bar">
+                    <div class="fill" style="width: $CPU_PERCENT"></div>
                 </div>
             </div>
             
             <div class="card">
-                <h2>Memory</h2>
-                <div class="value">$MEMORY</div>
-                <div class="detail">$MEMORY_USED / $MEMORY_TOTAL</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: $MEMORY"></div>
+                <div class="label">Memory</div>
+                <div class="value">${MEMORY_PERCENT}%</div>
+                <div class="detail">${MEMORY_USED}GB / ${MEMORY_TOTAL}GB</div>
+                <div class="bar">
+                    <div class="fill" style="width: ${MEMORY_PERCENT}%"></div>
                 </div>
             </div>
             
             <div class="card">
-                <h2>Disk Usage</h2>
+                <div class="label">Disk</div>
                 <div class="value">$DISK</div>
                 <div class="detail">$DISK_USED / $DISK_TOTAL</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: $DISK"></div>
+                <div class="bar">
+                    <div class="fill" style="width: $DISK"></div>
                 </div>
             </div>
             
             <div class="card">
-                <h2>Processes</h2>
+                <div class="label">Processes</div>
                 <div class="value">$PROCESSES</div>
-                <div class="detail">Running processes</div>
-            </div>
-            
-            <div class="card info-card">
-                <h2>System Info</h2>
-                <div class="detail" style="font-size: 16px; line-height: 1.8;">
-                    <strong>Uptime:</strong> $UPTIME<br>
-                    <strong>Load Average:</strong> $LOAD
-                </div>
             </div>
         </div>
-        
-        <div class="footer">
-            Last updated: $(date '+%Y-%m-%d %H:%M:%S')
-        </div>
+
+        <div class="ascii">                                          =############*+.           .-=**##*+---=+++***############
+                                 -+=+##%%%%#*+====+***####***+=*%*:               :=*###*+. .   + : 
+                              =*##%#*##**%%%%%%%@%#*%%%%%%%%+*%%%****.                      . = * #.
+                           -*#%%*%%%%%%%%%%%%%%%%%%@%@@@@@%#%*%%%%%%###:                            
+                         =#%%%%###%%%%%%%%%%%###%##%#%%%@@@@@@@%@@%%%%###.                          
+                       -%%%%%%%%@@@%%%%########%%#####%%%##%%@@@@@@%##+%%%=                         
+                      #%%%%%%@@@@%%###%##################%%%###%@@@@@@@%%#+*:                       
+                     *#*%%%@%%%%%#####*******+++*#*#####%%%%%%####%@@@%####+*=                      
+                    -++#%%%#########*++++====+++***********#%%%%####%@@%####++=                     
+                   -=+*#%%########+=-:::------:-:---=-::---=*###%%####%%@%###*++                    
+                  :=+*##########*+-::::::::.......::::::::--==+**##%#*##%@@%##*=..                  
+                 .-+*#%**#####**-. ........          ...:::-----=+*#%####%@@%#*+=.                  
+                 :=*##-:###***-.   ..::....             .:::----===++*####%@@@###*                  
+                  .+%* -#*+==.   ..::::...              ..::-----===+==*###%@@@@%%+                 
+                 %%%% .##+=-:...::::::::...          ....:::-----========###%@-.@%%.                
+                -%%%: .#*=...::---::::......        .....:::------=======+##%@-  ::                 
+                 =%.  .*+::..::-----::.......       .......::------=====++#%%%=                     
+                 #==  :#+-:::::---::::....             .....::-----====++**%%%-                     
+                :%%%%%%*+=--::::::::...                   ..:::::--====++**%%%%%#**.                
+              -=**#####*+==--:::::.....                   .....:::--===+***%%#%%%%%-###             
+            -=+:#*******+==--:.......                        ....:----=++**%#+****%=***#            
+           .+++=*+=====#==--::--:::......              .....:-====+++==++**#+=---=#*=++*-           
+           =**+#*------#===++******+++==--::.......:::-==+*###******#**+***#------##=++**           
+           =**#%#----=-#==+*+=====+*#%%##**+=-:...:-=+*##%%##+=---=++*##***#==---=*#*+++#           
+           -**#%#====+=*==**+===----=+*#####*=:...:-+######*+-:--=+**###***#+=====*##*+*%           
+.......... :*#%%#*+++**#==****++==-:-+**###%#+:.  .:+#####*++===++**###*++*#*+++++#%##**%.          
+............##%%%%#**###+=**##****++=++++++++-:.   :-+++*##**++++*###*====*########%%###%...........
+............*#%%%%%%##%%+---=+*########*++==-:..   .:-===+**########+---=+**%###%%%%%%#%#...........
+::::::::::::-%%@%%%%%%%%*=-:::+*######*=----::..    .::-=-::-+****=--:-==+**%%%%%%%@@%%%#.:::::..:::
+:::::::::::::+@@@@@%%%%%*==-::::-===--..:--::..      .:----:....::::::-=+++*%%%%%%@@@@%%*:::::::::::
+##############%@@@@@@@%%*==-:...   ....::--:..       ..:----:... ....:--=+*#%@@@@@@@@@@%############
+##############%%@@@@@@@@*=-:.........::--::::.       .::-:-==--:...:::--=+*%@@@@@@@@@@@%############
+%%%%%%%%%%%####%%@@@@@@@#=-:::.....::----..:--:::::::-==--==---------==++*#%@@@@@@@@@@@%############
+%%%%%%%%%%%%%%%%%%@@@@@@%*+===---------:=+++****+++**#####*+---==+++***##%%%@@@@@@@@@@%#############
+%%%%%%%%%%%%%%%%%%%@%@@@%*###**++===----=#%%%%%%%%%%%%%%###+===++*##%%%%%%%%@@@@@@@@@@*+#%%#########
+%%%%%%%%%%%%%%%%%%%%%%%%%*##%%###*+===---+#####%%%########*+==+++**#%%%%##%%@%%@@@@%%#++=###########
+%%%%%%%%%%%%%%%%%%%%%%%%%#**######++++=========+*####*+======+*#####*#####%@%####%%###**+=*#########
+#######################%%%******+*##%#*+=---::::..:..:-----==+#%%#++#####%@@%#########***+=+########
+########################@@%#****++=+%%%####**+++==++++**####%%#+--+####%%@@%##########*=+++==#######
+#######################*%%%%#####*+-:-****++==--=+++=----==+**+=+*#%%%%%@@@@%#############*+=-######
+#####################*=+#%%%%%%%###*+--++=-:..        ..::=+*+++*#%%%%@@@@@@@####%#######****=-=####
+##################===-===*%%%%%%%%%#*+==+**+==--:::---=+*****+++*%%%@@@@@@@%%##%%%%%######****+=--*#
+################*=-------=*@@@@@%%%%#*++++**#############***+++*%%%@@@@@@@@@@@%%@%%%%#########**=-::
+#########*****+---=------==*%@@@@@@%%#*+++++**#######****++=++*#%%@@@@@@@@@@@@%%%%%%%%##########*++-
+*+=-------===------=-----===+#@@@@@@@%#**+=======----------=**#%@@@@@@@@@@@@%%#############**+++**++
+====-----:-=++==----==---===++*%@@@@@@%%#*+==--::::::::--=+*##%@@@@@@@@@@@@@%##***########***++===++
+======------====+=---=+=====+++*#%@@@@@@%##*+==------===+*##%@@@@@@@@@@@@@@%#****##****###*+*+++++++
+=======------=+===*----++==+++++**#%@@@@@@%%##********####%%@@@@@@@@@@@@@@%#****#****##****+++++++++
+=========-----=++=+#+---=*+++++++***#%@@@@@@@%%%%%%%%%%%%@@@@@@@@@@@@@@@@#****#*****#*++++#*+=======
+==========-----=++++*%+--=+*+++*******##%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%#****#*++**%*===++**#*=======
+============---==+++=+##+--=*#+*********##%@@@@@@@@@@@@@@@@@@@@@@@%###+**##*++**#%+====+++**#+======</div>
+
+        <div class="footer">LAST UPDATE: $(date '+%Y-%m-%d %H:%M:%S')</div>
     </div>
 </body>
 </html>
 EOF
 
-echo "System monitor updated at $(date '+%H:%M:%S')"
+# Define your repository path and PAT
+REPO_DIR="/home/sarin/mss2025-project-template/"
+GITHUB_USERNAME="Sarin-Z"
+GITHUB_PAT=$(cat /home/sarin/mss2025-project-template/183/.pat) # Ensure this PAT has repo write permissions
+# Navigate to the repository directory
+cd "$REPO_DIR" || exit 1
+
+# Add all changes to staging
+git add .
+
+# Commit changes (only if there are changes)
+git diff-index --quiet HEAD || git commit -m "Automated commit from cron sarin time:$TIME"
+
+# Push to GitHub using the PAT for authentication
+git push "https://${GITHUB_USERNAME}:${GITHUB_PAT}@github.com/Harley2zazaa/mss2025-project-template.git" Sarin-Z
