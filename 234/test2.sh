@@ -118,7 +118,7 @@ cat > "$OUT_FILE" <<HTML
     }
 
     .tree-pre{
-      margin:0;
+      margin:20;
       white-space:pre;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
       font-size:0.92rem;
