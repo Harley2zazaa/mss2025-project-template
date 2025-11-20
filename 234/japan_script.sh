@@ -81,7 +81,7 @@ echo "
   </div>
 </div>
 <div class="container">
-  <div class="card" style="max-width: 90vw\; overflow-x: auto\; padding: 10px\;">
+  <div class="card" style="width: auto\; max-width: 90vw\; overflow-x: auto\; padding: 10px\;">
     <div class="label">Home Directory Tree</div>
     <div class="value" style="font-size: 0.75em\; text-align: left\; white-space: pre\;">
       $HOMEDIR
