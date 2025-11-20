@@ -21,11 +21,11 @@ HOMEDIR=$(tree /home)
 
 echo "
 <!DOCTYPE html>
-<html lang="en">
+<html lang=\"en\">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset=\"UTF-8\" />
   <title>Server Stats Dashboard</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />
   <style>
     :root{
       --card-bg: #fff;
@@ -35,7 +35,7 @@ echo "
     }
 
     body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial;
       background: #f0f0f0;
       margin: 0;
       padding: 20px;
@@ -128,41 +128,41 @@ echo "
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <div class="label">CPU Usage</div>
-      <div class="value">$CPU</div>
+  <div class=\"container\">
+    <div class=\"card\">
+      <div class=\"label\">CPU Usage</div>
+      <div class=\"value\">$CPU</div>
     </div>
 
-    <div class="card">
-      <div class="label">Memory Usage</div>
-      <div class="value">$MEM</div>
+    <div class=\"card\">
+      <div class=\"label\">Memory Usage</div>
+      <div class=\"value\">$MEM</div>
     </div>
 
-    <div class="card">
-      <div class="label">Storage Used</div>
-      <div class="value">$DISK</div>
+    <div class=\"card\">
+      <div class=\"label\">Storage Used</div>
+      <div class=\"value\">$DISK</div>
     </div>
 
-    <div class="card">
-      <div class="label">Last Updated</div>
-      <div class="value">$TIM</div>
+    <div class=\"card\">
+      <div class=\"label\">Last Updated</div>
+      <div class=\"value\">$TIM</div>
     </div>
 
-    <div class="card">
-      <div class="label">Hostname</div>
-      <div class="value">$HOSTNAME</div>
+    <div class=\"card\">
+      <div class=\"label\">Hostname</div>
+      <div class=\"value\">$HOSTNAME</div>
     </div>
 
     <!-- Home directory tree card -->
-    <div class="card wide" style="margin-left: 20px\;">
-      <div class="label">Home Directory Tree</div>
+    <div class=\"card wide\" style=\"margin-left: 20px\;\">
+      <div class=\"label\">Home Directory Tree</div>
 
       <!-- wrapper hides anything shifted out and provides the visible card edge -->
-      <div class="tree-wrapper">
+      <div class=\"tree-wrapper\">
         <!-- inner panel allows scrolling if content is wider than visible area -->
-        <div class="tree-card" role="region" aria-label="home directory tree">
-<pre class="tree-pre">$HOMEDIR</pre>
+        <div class=\"tree-card\" role=\"region\" aria-label=\"home directory tree\">
+<pre class=\"tree-pre\">$HOMEDIR</pre>
         </div>
       </div>
     </div>
