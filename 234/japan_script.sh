@@ -82,12 +82,12 @@ echo "
   </div>
   <div class="card">
     <div class="label">Firewall Rules</div>
-    <div class="value" style="font-size: 0.9em; white-space: pre-wrap;">{{FIREWALL}}</div>
+    <div class="value" style="font-size: 0.9em; white-space: pre-wrap;">$FIREWALL</div>
   </div>
 
   <div class="card">
     <div class="label">Open Ports</div>
-    <div class="value" style="font-size: 0.9em; white-space: pre-wrap;">{{PORTS}}</div>
+    <div class="value" style="font-size: 0.9em; white-space: pre-wrap;">$PORTS</div>
   </div>
 
 </body>
