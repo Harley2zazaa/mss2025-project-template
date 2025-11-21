@@ -1,9 +1,9 @@
 {
-    "cpu_usage": "0",
-    "memory_used": "529",
+    "cpu_usage": "4.8",
+    "memory_used": "524",
     "memory_total": "3868",
     "storage_usage": "35",
     "os": "Ubuntu 24.04.3 LTS",
-    "system_uptime": "up 16 hours, 21 minutes",
-    "last_updated": "Fri Nov 21 11:20:01 AM +07 2025"
+    "system_uptime": "up 16 hours, 41 minutes",
+    "last_updated": "Fri Nov 21 11:40:01 AM +07 2025"
 }
