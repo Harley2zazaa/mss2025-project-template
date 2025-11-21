@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="5">
+    <title>System Monitor | Dark Mode</title>
+    <style>
+        /* Variables for easy color changes */
+        :root {
+            --bg-color: #1a1a2e; /* Deep purple/blue background */
+            --card-bg: #22223b; /* Slightly lighter card background */
+            --text-color: #f0f0f0; /* Light text */
+            --detail-color: #a0a0a0; /* Grey text for details */
+            --accent-color: #00bcd4; /* Cyan/Aqua accent for progress */
+            --success-color: #4caf50; /* Green for Uptime/Load */
+            --warning-color: #ff9800; /* Orange for high usage */
+            --danger-color: #f44336; /* Red for critical usage */
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background: var(--bg-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            color: var(--text-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--accent-color);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 20px;
+            color: var(--detail-color);
+            font-weight: 300;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* Subtle dark shadow */
+            border: 1px solid rgba(255, 255, 255, 0.05); /* Very light border */
+            transition: transform 0.2s, background 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            background: #2a2a4b; /* Slight lift and highlight on hover */
+        }
+        .card h2 {
+            margin: 0 0 20px 0;
+            font-size: 16px;
+            color: var(--detail-color);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 400;
+        }
+        .value {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 10px 0;
+            line-height: 1.1;
+        }
+        .detail {
+            color: var(--detail-color);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        /* Progress Bar Styling */
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #333;
+            border-radius: 6px;
+            margin-top: 25px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-color);
+            transition: width 0.5s ease-out;
+        }
+        
+        /* Colored Progress Fill based on value (Advanced - Requires JS or more complex shell logic, but setting default here) */
+        .cpu-fill { background: linear-gradient(90deg, #ff9800, #f44336); }
+        .mem-fill { background: linear-gradient(90deg, #00bcd4, #007bff); }
+        .disk-fill { background: linear-gradient(90deg, #4caf50, #00bcd4); }
+
+        .info-card {
+            grid-column: 1 / -1;
+            border-left: 5px solid var(--success-color);
+            background: #22223b; 
+        }
+        .info-card h2 {
+            color: var(--success-color);
+        }
+        .info-card .detail {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-color);
+            font-weight: 300;
+        }
+        .footer {
+            text-align: center;
+            color: var(--detail-color);
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .header h1 { font-size: 42px; }
+            .grid { grid-template-columns: 1fr; gap: 20px; }
+            .value { font-size: 38px; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SYSTEM MONITOR</h1>
+            <p>Performance Metrics for Host: <strong>k9gserver</strong></p>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <h2>CPU Usage</h2>
+                <div class="value">0%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill cpu-fill" style="width: 0%;"></div>
+                </div>
+                <div class="detail">Current processor load</div>
+            </div>
+            
+            <div class="card">
+                <h2>Memory Usage</h2>
+                <div class="value">13.8%</div>
+                <div class="detail">533Mi / 3.8Gi</div>
+                <div class="progress-bar">
+                    <div class="progress-fill mem-fill" style="width: 13.8%;"></div>
+                </div>
+                <div class="detail">Physical memory utilization</div>
+            </div>
+            
+            <div class="card">
+                <h2>Disk Usage</h2>
+                <div class="value">35%</div>
+                <div class="detail">6.5G / 20G (Root /)</div>
+                <div class="progress-bar">
+                    <div class="progress-fill disk-fill" style="width: 35;"></div>
+                </div>
+                <div class="detail">Space used on root filesystem</div>
+            </div>
+            
+            <div class="card">
+                <h2>Running Processes</h2>
+                <div class="value">216</div>
+                <div class="detail">Total processes running</div>
+            </div>
+            
+            <div class="card info-card">
+                <h2>System Uptime & Load</h2>
+                <div class="detail">
+                    <strong>Uptime:</strong> 16 hours, 23 minutes<br>
+                    <strong>Load Average (1, 5, 15 min):</strong> 0.00, 0.00, 0.00
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Last updated: 2025-11-21 08:21:19 | Refreshing every 5 seconds.
+        </div>
+    </div>
+</body>
+</html>
